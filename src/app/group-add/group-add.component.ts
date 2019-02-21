@@ -19,9 +19,14 @@ export class GroupAddComponent implements OnInit {
   }
 
   private updateGameList() {
-    this.service.getGames().subscribe(data => {
-      this.gameList = data.content;
-      console.log(this.gameList);
+    this.service.getGames(0, 1).subscribe(data => {
+      // this.gameList = data.content;
+      // console.log(this.gameList);
+
+      this.service.getGames(0, data.totalElements).subscribe(data2 => {
+        this.gameList = data2.content;
+        console.log(this.gameList);
+      });
     });
   }
 

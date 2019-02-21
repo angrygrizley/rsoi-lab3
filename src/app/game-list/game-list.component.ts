@@ -14,22 +14,22 @@ export class GameListComponent implements OnInit {
   private gameData: any;
   public currentPage: number = 0;
   public totalItems: number;
-  public itp = 5;
+  public itp: number = 5;
   public numPages: number;
 
   constructor(private service: GatewayService) { }
 
   ngOnInit() {
-    this.getGamesList(this.currentPage);
+    this.getGamesList(this.currentPage, this.itp);
   }
 
   public pageChanged(page) {
     console.log('pageChanged: ', page);
-    this.getGamesList(parseInt(page, 10) - 1);
+    this.getGamesList(parseInt(page, 10) - 1, this.itp);
   }
 
-  getGamesList(page: number) {
-    this.service.getGames(page).subscribe(data => {
+  getGamesList(page: number, size: number) {
+    this.service.getGames(page, size).subscribe(data => {
       this.gameData = data;
       this.totalItems = this.gameData.totalElements;
       this.numPages = this.gameData.totalPages;

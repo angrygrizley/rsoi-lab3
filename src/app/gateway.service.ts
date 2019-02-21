@@ -28,8 +28,8 @@ export class GatewayService {
     return this.http.get('http://localhost:8088/groups/id/' + id);
   }
 
-  getGames(page: number): Observable<any> {
-    return this.http.get('http://localhost:8088/games?page=' + page.toString());
+  getGames(page: number, size: number): Observable<any> {
+    return this.http.get('http://localhost:8088/games?page=' + page.toString() + '&size=' + size.toString());
   }
 
   getGameInfo(id: string): Observable<any> {
