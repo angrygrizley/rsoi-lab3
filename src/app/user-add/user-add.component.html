@@ -1,11 +1,16 @@
-<div>
-  <label>Имя</label>
-  <input name="username" [(ngModel)]="user.name" />
-</div>
-<div>
-  <label>Логин</label>
-  <input name="login" [(ngModel)]="user.login" />
-</div>
-<div>
-  <button (click)="submit(user)">Отправить</button>
-</div>
+
+  <div class = "form=user">
+    <label>Имя</label>
+    <input class="form-contol" name="username" [(ngModel)]="user.name" #username="ngModel"
+           required pattern="[a-zA-Z_]*"/>
+    <div [hidden]="username.valid || username.untouched" class="alert alert-danger">Некорректный ник!</div>
+
+    <label>Логин</label>
+    <input class="form-control" name="login" [(ngModel)]="user.login" #login="ngModel"
+           required pattern="[a-zA-Z_]*"/>
+    <div [hidden]="login.valid || login.untouched" class="alert alert-danger">Некорректный логин!</div>
+
+    <div>
+      <button (click)="submit(user)">Отправить</button>
+    </div>
+  </div>

@@ -10,5 +10,14 @@
       </div>
 
     </div>
+
+    <ngb-pagination #pagination
+                    [pageSize]="itp"
+                    [collectionSize]="totalItems"
+                    [(page)]="currentPage"
+                    (maxSize)="5"
+                    [boundaryLinks]="true"
+                    (pageChange)="pageChanged($event)">
+    </ngb-pagination>
   </ul>
 </div>

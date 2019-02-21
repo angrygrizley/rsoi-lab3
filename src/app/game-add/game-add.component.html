@@ -1,19 +1,23 @@
-<div>
+<div class = "form-game">
+
   <label>Название игры</label>
-  <input name="gametitle" [(ngModel)]="game.title" />
-</div>
-<div>
+  <input class="form-control" name="gametitle" [(ngModel)]="game.title" #gameTitle="ngModel"
+         required pattern="[a-zA-Z_+ ]*"/>
+  <div [hidden]="gameTitle.valid || gameTitle.untouched" class="alert alert-danger">Некорректное название!</div>
+
   <label>Жанр</label>
-  <input name="gamegenre" [(ngModel)]="game.genre" />
-</div>
-<div>
+  <input class="form-control" name="gamegenre" [(ngModel)]="game.genre" #gameGenre="ngModel"
+         required pattern="[a-zA-Z_]*"/>
+  <div [hidden]="gameGenre.valid || gameGenre.untouched" class="alert alert-danger">Некорректный жанр!</div>
+
+
   <label>Минимальное кол-во игроков</label>
   <input type="number" name="gameMinNum" [(ngModel)]="game.minNum" />
-</div>
-<div>
+
   <label>Максимальное кол-во игроков</label>
   <input type="number" name="gameMaxNum" [(ngModel)]="game.maxNum" />
-</div>
-<div>
-  <button (click)="submit(game)">Создать игру</button>
+
+  <div>
+    <button (click)="submit(game)">Создать игру</button>
+  </div>
 </div>
