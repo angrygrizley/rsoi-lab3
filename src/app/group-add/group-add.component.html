@@ -1,6 +1,8 @@
 <body><div>
     <label>Название группы</label>
-    <input name="groupname" [(ngModel)]="group.groupName" />
+    <input class="form-control" name="groupname" [(ngModel)]="group.groupName" #groupName = "ngModel"
+           required pattern="[a-zA-Z_+ ]*"/>
+  <div [hidden]="groupName.valid || groupName.untouched" class="alert alert-danger">Некорректное название!</div>
   </div>
   <div>
     <label>Игра</label>
@@ -9,7 +11,7 @@
     </select>
   </div>
   <div>
-    <label>Свободное место</label>
+    <label>Свободных мест:</label>
     <input type="number" name="groupspace" [(ngModel)]="group.freeSpace"/>
   </div>
   <div>
