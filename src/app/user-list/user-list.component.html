@@ -1,9 +1,12 @@
-
-<h3>Вы можете <a routerLink="/adduser">добавить</a> нового пользователя</h3>
-<div *ngIf="usersData">
-  <ul>
-    <li *ngFor="let u of usersData">
-      <a routerLink="/user/{{u.id}}">{{u.name}}</a>
-    </li>
-  </ul>
-</div>
+<body xmlns:cursor="http://www.w3.org/1999/xhtml">
+  <h3>Вы можете <a routerLink="/adduser">добавить</a> нового пользователя</h3>
+  <div *ngIf="usersData">
+    <ul>
+      <div *ngFor="let u of usersData" class="flex-container">
+        <div style="cursor: pointer" routerLink="/user/{{u.id}}">
+          <p>Ник: "{{u.name}}"</p>
+        </div>
+      </div>
+    </ul>
+  </div>
+</body>

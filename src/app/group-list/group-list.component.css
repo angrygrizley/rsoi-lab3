@@ -1,14 +1,24 @@
+body {
+  background-color: #f1eedb;
+  width: 900px;
+  margin-left: auto;
+  margin-right: auto;
+  padding: 20px;
+}
+
 .flex-container {
   display: flex;
   /*background-color: DodgerBlue;*/
   height: 200px;
+  width: 90%;
   flex-wrap: wrap;
   align-content: space-between;
 }
 
 .flex-container > div {
-  background-color: #f1f1f1;
+  background-color: #ebe3aa;
   margin: 10px;
+  width: 90%;
   padding: 20px;
   font-size: 20px;
 }

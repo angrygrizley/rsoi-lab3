@@ -1,23 +1,25 @@
-<h3>Вы можете <a routerLink="/addgame">добавить</a> новую игру</h3>
+<body>
+  <h3>Вы можете <a routerLink="/addgame">добавить</a> новую игру</h3>
 
-<div *ngIf="gameData">
-  <ul>
-    <div *ngFor="let g of gameData.content" class="flex-container">
+  <div *ngIf="gameData">
+    <ul>
+      <div *ngFor="let g of gameData.content" class="flex-container">
 
-      <div style="cursor: pointer" routerLink="/game/{{g.id}}" >
-          <p>Игра: "{{g.title}}"</p>
-          <p>Групп: {{g.groupNum}}</p>
+        <div style="cursor: pointer" routerLink="/game/{{g.id}}" >
+            <p>Игра: "{{g.title}}"</p>
+            <p>Групп: {{g.groupNum}}</p>
+        </div>
+
       </div>
 
-    </div>
-
-    <ngb-pagination #pagination
-                    [pageSize]="itp"
-                    [collectionSize]="totalItems"
-                    [(page)]="currentPage"
-                    (maxSize)="5"
-                    [boundaryLinks]="true"
-                    (pageChange)="pageChanged($event)">
-    </ngb-pagination>
-  </ul>
-</div>
+      <ngb-pagination #pagination
+                      [pageSize]="itp"
+                      [collectionSize]="totalItems"
+                      [(page)]="currentPage"
+                      (maxSize)="5"
+                      [boundaryLinks]="true"
+                      (pageChange)="pageChanged($event)">
+      </ngb-pagination>
+    </ul>
+  </div>
+</body>
