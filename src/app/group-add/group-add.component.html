@@ -1,0 +1,17 @@
+<div>
+  <label>Название группы</label>
+  <input name="groupname" [(ngModel)]="group.groupName" />
+</div>
+<div>
+  <label>Игра</label>
+  <select [(ngModel)]="group.gameId">
+    <option *ngFor="let game of gameList" [value]="game.id">{{game.title}}</option>
+  </select>
+</div>
+<div>
+  <label>Свободное место</label>
+  <input type="number" name="groupspace" [(ngModel)]="group.freeSpace"/>
+</div>
+<div>
+  <button (click)="submit(group)">Создать группу</button>
+</div>

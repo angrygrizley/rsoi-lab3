@@ -1,0 +1,19 @@
+<div>
+  <label>Название игры</label>
+  <input name="gametitle" [(ngModel)]="game.title" />
+</div>
+<div>
+  <label>Жанр</label>
+  <input name="gamegenre" [(ngModel)]="game.genre" />
+</div>
+<div>
+  <label>Минимальное кол-во игроков</label>
+  <input type="number" name="gameMinNum" [(ngModel)]="game.minNum" />
+</div>
+<div>
+  <label>Максимальное кол-во игроков</label>
+  <input type="number" name="gameMaxNum" [(ngModel)]="game.maxNum" />
+</div>
+<div>
+  <button (click)="submit(game)">Создать игру</button>
+</div>

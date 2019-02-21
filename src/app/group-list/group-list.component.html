@@ -1,0 +1,17 @@
+<h3>Вы можете <a routerLink="/addgroup">добавить</a> новую группу</h3>
+
+<label> <input type="checkbox" [(ngModel)]="freeGroups"> Только свободные группы</label>
+<div *ngIf="groupsData">
+  <ul>
+    <div *ngFor="let g of groupsData" class="flex-container">
+
+      <div *ngIf="!(freeGroups && g.freeSpace == 0)" style="cursor: pointer" routerLink="/group/{{g.id}}">
+
+        <p>Группа {{g.groupName}}</p>
+        <p>Свободных мест: {{g.freeSpace}}</p>
+
+      </div>
+
+    </div>
+  </ul>
+</div>

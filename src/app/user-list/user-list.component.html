@@ -1,0 +1,9 @@
+
+<h3>Вы можете <a routerLink="/adduser">добавить</a> нового пользователя</h3>
+<div *ngIf="usersData">
+  <ul>
+    <li *ngFor="let u of usersData">
+      <a routerLink="/user/{{u.id}}">{{u.name}}</a>
+    </li>
+  </ul>
+</div>

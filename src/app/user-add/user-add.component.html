@@ -1,0 +1,11 @@
+<div>
+  <label>Имя</label>
+  <input name="username" [(ngModel)]="user.name" />
+</div>
+<div>
+  <label>Логин</label>
+  <input name="login" [(ngModel)]="user.login" />
+</div>
+<div>
+  <button (click)="submit(user)">Отправить</button>
+</div>

@@ -1,0 +1,14 @@
+<h3>Вы можете <a routerLink="/addgame">добавить</a> новую игру</h3>
+
+<div *ngIf="gameData">
+  <ul>
+    <div *ngFor="let g of gameData.content" class="flex-container">
+
+      <div style="cursor: pointer" routerLink="/game/{{g.id}}" >
+          <p>Игра: "{{g.title}}"</p>
+          <p>Групп: {{g.groupNum}}</p>
+      </div>
+
+    </div>
+  </ul>
+</div>

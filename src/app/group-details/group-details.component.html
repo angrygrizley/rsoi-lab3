@@ -1,0 +1,40 @@
+
+<h3 *ngIf="group">
+  <p>Группа {{group.group.groupName}}</p>
+  <p>Играют в <a routerLink="/game/{{group.game.id}}">{{group.game.title}}</a></p>
+  <p>Свободных мест: {{group.group.freeSpace}}</p>
+</h3>
+
+<ng-container *ngIf="group && group.players.length > 0; then playersExists; else noPlayers">
+</ng-container>
+
+
+<ng-template #playersExists>
+<ul *ngIf="group">
+  Игроки в группе:
+  <li *ngFor="let p of group.players">
+    <a routerLink="/user/{{p.id}}">{{p.name}}</a> <button style="alignment: right" (click)="removeUserFromGroup(p.id)">X</button>
+  </li>
+</ul>
+</ng-template>
+
+<ng-template #noPlayers>
+<p>В этой группе еще нет игроков. Вы можете пригласить их, воспользовавшись формой ниже</p>
+</ng-template>
+
+
+<div *ngIf="group">
+    <p><label>Добавить игрока в группу</label></p>
+  <div>
+    <select [(ngModel)]="lol">
+      <option *ngFor="let u of userList" [value]="u.id">{{u.name}}</option>
+    </select>
+  </div>
+  <div>
+    <button (click)="submit(lol)">Добавить игрока</button>
+  </div>
+</div>
+
+<p>Вы можете <a href="#" (click)="delGroup()">удалить</a> эту группу</p>
+<!--<button (click)="delGroup()">Удалить группу</button>-->
+
