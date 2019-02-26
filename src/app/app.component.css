@@ -6,19 +6,27 @@ ul {
   background-color: #c49006;
 }
 
-li {
-  float: left;
-}
-
 li a {
   display: block;
   color: #ffffff;
   text-align: center;
   padding: 14px 16px;
   text-decoration: none;
+  float: left;
 }
 
 li a:hover {
+  background-color: #eb5180;
+}
+
+li b {
+  color: #ffffff;
+  padding: 14px 16px;
+  text-decoration: none;
+  float: right;
+}
+
+li b:hover {
   background-color: #eb5180;
 }
 
@@ -30,4 +38,6 @@ li title {
   text-align: center;
   padding: 14px 16px;
   text-decoration: none;
+  float: left;
 }
+

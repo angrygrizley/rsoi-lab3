@@ -15,6 +15,8 @@ import { FormsModule } from '@angular/forms';
 import { GroupAddComponent } from './group-add/group-add.component';
 import { GameAddComponent } from './game-add/game-add.component';
 import { NgbModule, NgbPaginationModule } from '@ng-bootstrap/ng-bootstrap';
+import { LoginComponent } from './login/login.component';
+import { AuthGuard } from './authguard';
 
 @NgModule({
   declarations: [
@@ -28,6 +30,7 @@ import { NgbModule, NgbPaginationModule } from '@ng-bootstrap/ng-bootstrap';
     UserAddComponent,
     GroupAddComponent,
     GameAddComponent,
+    LoginComponent,
   ],
   imports: [
     BrowserModule,
@@ -37,7 +40,7 @@ import { NgbModule, NgbPaginationModule } from '@ng-bootstrap/ng-bootstrap';
     NgbModule,
     NgbPaginationModule
   ],
-  providers: [],
+  providers: [AuthGuard],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
