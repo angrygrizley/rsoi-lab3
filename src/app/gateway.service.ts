@@ -112,7 +112,7 @@ export class GatewayService {
     body = body.set('userid', userID);
     body = body.set('groupid', groupID);
     // @ts-ignore
-    return this.http.delete('http://localhost:8088/groups/players/remove', body, {headers: myheaders});
+    return this.http.delete('http://localhost:8088/groups/players/remove',{headers: myheaders, params: body});
   }
 
   deleteGroup(groupID: string): Observable<any> {
